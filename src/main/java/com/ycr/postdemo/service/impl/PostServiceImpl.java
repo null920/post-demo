@@ -17,7 +17,9 @@ import com.ycr.postdemo.domain.entity.User;
 import com.ycr.postdemo.domain.entity.convertor.PostConvertor;
 import com.ycr.postdemo.domain.vo.PostVO;
 import com.ycr.postdemo.exception.PostException;
+import com.ycr.postdemo.exception.UserException;
 import com.ycr.postdemo.exception.errorcode.PostErrorCode;
+import com.ycr.postdemo.exception.errorcode.UserErrorCode;
 import com.ycr.postdemo.mapper.PostMapper;
 import com.ycr.postdemo.mapper.UserMapper;
 import com.ycr.postdemo.service.PostService;
@@ -70,6 +72,10 @@ public class PostServiceImpl extends ServiceImpl<PostMapper, Post>
 
         if (null == userId) {
             throw new PostException(PostErrorCode.POST_QUERY_PARAM_ERROR);
+        }
+        User userById = userMapper.findUserById(userId);
+        if (userById == null) {
+            throw new UserException(UserErrorCode.USER_NOT_EXIST);
         }
         QueryWrapper<Post> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
