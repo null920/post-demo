@@ -1,11 +1,18 @@
 package com.ycr.postdemo.domain.entity;
 
+import cn.hutool.crypto.digest.DigestUtil;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.annotation.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import com.ycr.postdemo.constant.UserRole;
+import com.ycr.postdemo.domain.dto.PostCreateParam;
+import com.ycr.postdemo.domain.dto.PostUpdateParam;
+import com.ycr.postdemo.domain.dto.UserRegisterParam;
 import lombok.Data;
 
 /**
@@ -71,4 +78,26 @@ public class Post implements Serializable {
     @Serial
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
+
+    public Post add(PostCreateParam postCreateParam) {
+        this.setTitle(postCreateParam.getTitle());
+        this.setContent(postCreateParam.getContent());
+        List<String> tagList = postCreateParam.getTags();
+        if (tagList != null) {
+            this.setTags(JSONUtil.toJsonStr(tagList));
+        }
+        return this;
+    }
+
+    public Post update(PostUpdateParam postUpdateParam) {
+        this.setPostId(postUpdateParam.getPostId());
+        this.setTitle(postUpdateParam.getTitle());
+        this.setContent(postUpdateParam.getContent());
+        List<String> tagList = postUpdateParam.getTags();
+        if (tagList != null) {
+            this.setTags(JSONUtil.toJsonStr(tagList));
+        }
+        return this;
+    }
 }

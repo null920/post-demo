@@ -1,8 +1,7 @@
 package com.ycr.postdemo.mapper;
 
-import com.ycr.postdemo.common.response.UserOperatorResponse;
-import com.ycr.postdemo.domain.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ycr.postdemo.domain.entity.User;
 import jakarta.validation.constraints.NotNull;
 import org.apache.ibatis.annotations.Mapper;
 

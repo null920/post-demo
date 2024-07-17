@@ -1,4 +1,4 @@
-package com.ycr.postdemo.exception;
+package com.ycr.postdemo.exception.errorcode;
 
 /**
  * 错误码

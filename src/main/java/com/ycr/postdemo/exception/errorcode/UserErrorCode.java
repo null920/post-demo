@@ -1,6 +1,4 @@
-package com.ycr.postdemo.exception.user;
-
-import com.ycr.postdemo.exception.ErrorCode;
+package com.ycr.postdemo.exception.errorcode;
 
 /**
  * 用户错误码

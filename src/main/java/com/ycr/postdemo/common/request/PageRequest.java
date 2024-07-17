@@ -1,23 +1,34 @@
 package com.ycr.postdemo.common.request;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.ycr.postdemo.constant.PageConstant;
+import lombok.Data;
 
 /**
+ * 分页请求
+ *
  * @author null&&
- * @Date 2024/7/16 18:16
+ * @Date 2024/7/17 17:27
  */
-@Setter
-@Getter
+@Data
 public class PageRequest extends BaseRequest {
-    private static final long serialVersionUID = 1L;
+    /**
+     * 当前页号
+     */
+    private int current = 1;
 
     /**
-     * 当前页
+     * 页面大小
      */
-    private int currentPage;
+    private int pageSize = 10;
+
     /**
-     * 每页结果数
+     * 排序字段
      */
-    private int pageSize;
+    private String sortField;
+
+    /**
+     * 排序顺序（默认升序）
+     */
+    private String sortOrder = PageConstant.SORT_ORDER_ASC;
+
 }

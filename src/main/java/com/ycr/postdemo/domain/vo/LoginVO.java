@@ -38,6 +38,6 @@ public class LoginVO implements Serializable {
     public LoginVO(UserInfo userInfo) {
         this.userId = userInfo.getUserId().toString();
         this.token = StpUtil.getTokenValue();
-        this.tokenExpiration = StpUtil.getTokenSessionTimeout();
+        this.tokenExpiration = StpUtil.getTokenTimeout();
     }
 }

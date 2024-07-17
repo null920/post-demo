@@ -1,4 +1,4 @@
-package com.ycr.postdemo.exception;
+package com.ycr.postdemo.exception.errorcode;
 
 /**
  * 业务通用错误码

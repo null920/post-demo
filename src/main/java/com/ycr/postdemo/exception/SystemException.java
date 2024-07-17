@@ -1,11 +1,17 @@
 package com.ycr.postdemo.exception;
 
+import com.ycr.postdemo.exception.errorcode.ErrorCode;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 系统异常
  *
  * @author null&&
  * @Date 2024/7/16 22:27
  */
+@Setter
+@Getter
 public class SystemException extends RuntimeException {
 
     private ErrorCode errorCode;
@@ -35,11 +41,4 @@ public class SystemException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public ErrorCode getErrorCode() {
-        return errorCode;
-    }
-
-    public void setErrorCode(ErrorCode errorCode) {
-        this.errorCode = errorCode;
-    }
 }

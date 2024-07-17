@@ -3,7 +3,7 @@ package com.ycr.postdemo.exception;
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.util.SaResult;
-import com.ycr.postdemo.exception.user.UserErrorCode;
+import com.ycr.postdemo.exception.errorcode.UserErrorCode;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class SaGlobalException {
+    // 拦截：未登录异常
     @ExceptionHandler(NotLoginException.class)
     public SaResult handlerException(NotLoginException e) {
         e.printStackTrace();

@@ -3,19 +3,19 @@ package com.ycr.postdemo.common.request;
 import lombok.*;
 
 /**
- * 用户查询请求封装类
+ * 帖子查询请求封装类
  *
  * @author null&&
- * @Date 2024/7/16 18:13
+ * @Date 2024/7/17 17:30
  */
 @Setter
 @Getter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserQueryRequest extends BaseRequest {
+public class PostQueryRequest extends PageRequest {
 
     private Long userId;
 
-    private String username;
+    private Long postId;
 }

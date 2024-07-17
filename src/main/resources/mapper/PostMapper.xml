@@ -23,4 +23,12 @@
         user_id,create_time,update_time,
         deleted
     </sql>
+    <select id="findPostById" resultMap="BaseResultMap">
+        select * from post where deleted=0
+        <if test="postId!=null">AND post_id = #{postId}</if>
+    </select>
+    <select id="findPostListByUserId" resultMap="BaseResultMap">
+        select * from post where deleted=0
+        <if test="userId!=null">AND user_id = #{userId}</if>
+    </select>
 </mapper>
