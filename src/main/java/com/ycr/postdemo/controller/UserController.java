@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static com.ycr.postdemo.exception.errorcode.UserErrorCode.USER_NOT_EXIST;
 
@@ -58,7 +59,7 @@ public class UserController {
         UserInfo userInfo = userService.userLogin(userLoginParam);
         //登录
         StpUtil.login(userInfo.getUserId(), new SaLoginModel()
-                .setExtra("roles", Arrays.asList(UserRole.USER))
+                .setExtra("roles", Collections.singletonList(userInfo.getUserRole()))
                 .setIsLastingCookie(userLoginParam.getRememberMe())
                 .setTimeout(DEFAULT_LOGIN_SESSION_TIMEOUT));
         StpUtil.getSession().set(userInfo.getUserId().toString(), userInfo);
