@@ -58,7 +58,6 @@ public class PostInfo implements Serializable {
     /**
      * 创建时间
      */
-
     private Date createTime;
 
     /**

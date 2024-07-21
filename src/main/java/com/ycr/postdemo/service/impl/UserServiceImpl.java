@@ -89,13 +89,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             user = userMapper.findUserById(userQueryRequest.getUserId());
         }
 
-        if (StringUtils.isNotBlank(userQueryRequest.getUsername())) {
+        if (user == null || StringUtils.isNotBlank(userQueryRequest.getUsername())) {
             user = userMapper.findByUsername(userQueryRequest.getUsername());
         }
         if (user == null) {
             throw new UserException(UserErrorCode.USER_NOT_EXIST);
         }
-        UserQueryResponse<UserInfo> response = new UserQueryResponse();
+        UserQueryResponse<UserInfo> response = new UserQueryResponse<>();
         response.setSuccess(true);
         UserInfo userInfo = UserConvertor.INSTANCE.mapToVo(user);
         response.setData(userInfo);

@@ -7,7 +7,6 @@ import com.ycr.postdemo.common.Result;
 import com.ycr.postdemo.common.UserInfo;
 import com.ycr.postdemo.common.request.UserQueryRequest;
 import com.ycr.postdemo.common.response.UserOperatorResponse;
-import com.ycr.postdemo.constant.UserRole;
 import com.ycr.postdemo.domain.dto.UserLoginParam;
 import com.ycr.postdemo.domain.dto.UserRegisterParam;
 import com.ycr.postdemo.domain.entity.User;
@@ -21,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 import static com.ycr.postdemo.exception.errorcode.UserErrorCode.USER_NOT_EXIST;
@@ -48,7 +46,7 @@ public class UserController {
     @PostMapping("/register")
     public Result<Boolean> register(@Valid @RequestBody UserRegisterParam userRegisterParam) {
         UserOperatorResponse registerResult = userService.userRegister(userRegisterParam);
-        if (Boolean.TRUE.equals(registerResult.getSuccess())) {
+        if (registerResult.getSuccess() != null) {
             return Result.success(true);
         }
         return Result.error(registerResult.getResponseCode(), registerResult.getResponseMessage());

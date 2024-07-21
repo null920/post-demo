@@ -2,7 +2,6 @@ package com.ycr.postdemo.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ycr.postdemo.common.PostInfo;
 import com.ycr.postdemo.common.request.PostQueryRequest;
 import com.ycr.postdemo.common.response.PostOperatorResponse;
 import com.ycr.postdemo.common.response.PostQueryResponse;
@@ -10,8 +9,6 @@ import com.ycr.postdemo.domain.dto.PostCreateParam;
 import com.ycr.postdemo.domain.dto.PostUpdateParam;
 import com.ycr.postdemo.domain.entity.Post;
 import com.ycr.postdemo.domain.vo.PostVO;
-
-import java.util.List;
 
 /**
  * @author null&&

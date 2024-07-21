@@ -1,6 +1,6 @@
 package com.ycr.postdemo.service;
 
-import com.ycr.postdemo.common.Result;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ycr.postdemo.common.UserInfo;
 import com.ycr.postdemo.common.request.UserQueryRequest;
 import com.ycr.postdemo.common.response.UserOperatorResponse;
@@ -8,8 +8,6 @@ import com.ycr.postdemo.common.response.UserQueryResponse;
 import com.ycr.postdemo.domain.dto.UserLoginParam;
 import com.ycr.postdemo.domain.dto.UserRegisterParam;
 import com.ycr.postdemo.domain.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.ycr.postdemo.domain.vo.LoginVO;
 
 /**
  * 用户服务接口
